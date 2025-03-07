@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .user-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .user-detail div {
+            width: 48%;
+        }
+        .user-detail img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .btn-volver {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .btn-volver:hover {
+            background-color: #218838;
+        }
+        .user-detail p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Detalle de Usuario</h1>
+            <p>A continuación, se muestran los detalles del usuario seleccionado.</p>
+        </div>
+
+        <div class="user-detail">
+            <div>
+                <img src="{{ user.picture_url }}" alt="Imagen del Usuario">
+            </div>
+            <div>
+                <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+                <p><strong>Género:</strong> {{ user.gender }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Teléfono:</strong> {{ user.phone }}</p>
+                <p><strong>Celular:</strong> {{ user.cell }}</p>
+                <p><strong>Ubicación:</strong> {{ user.city }}, {{ user.state }}, {{ user.country }}</p>
+                <p><strong>Fecha de Nacimiento:</strong> {{ user.dob }}</p>
+                <p><strong>Edad:</strong> {{ user.age }} años</p>
+                <p><strong>Número de Seguro Social:</strong> {{ user.ssn }}</p>
+                <p><strong>Nacionalidad:</strong> {{ user.nationality }}</p>
+                <p><strong>Zona Horaria:</strong> {{ user.timezone_description }}</p>
+            </div>
+        </div>
+
+        <a href="{% url 'users_list' %}" class="btn-volver">Volver a la Lista de Usuarios</a>
+    </div>
+</body>
+</html>
